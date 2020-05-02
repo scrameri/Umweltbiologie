@@ -2,9 +2,9 @@
 
 ### Fitting models to data
 
-**Analysis of Variance (ANOVA)** using `aov` and (generalized) **linear models** using `lm`or `glm` are closely related to each other and differ maintly in *intent* of analysis and default *presentation* of results.
+**Analysis of Variance (ANOVA)** using `aov` and (generalized) **linear models** using `lm`or `glm` are closely related to each other and differ mainly in *intent* of analysis and default *presentation* of results.
 
-You can think of them as extensions of a two-sample t-test. Remember that the two-sample t-test allows to test the difference in a dependent variable (a.k.a. **response** variable, measure variable, Y variable) between two levels of one factor (a.k.a. **predictor** variable, independent variable, X variable). A common example is the difference in human height (the dependent variable) between two sexes (the predictor variable).
+You can think of them as extensions of a two-sample t-test. Remember that the two-sample t-test allows to test the difference in a dependent variable (a.k.a. **response** variable, measure variable, Y variable) between two levels of one factor (a.k.a. **predictor** variable, independent variable, X variable). A textbook two-sample t-test is the test for difference in human height (the dependent variable) between two sexes (the predictor variable).
 
 Let us start with a [**one-sample t-test**] (https://en.wikipedia.org/wiki/Student%27s_t-test):
 
@@ -25,29 +25,26 @@ summary(lm(Sepal_length ~ 1, data = morph))
 Let us now extend this to a **two-sample t-test** (one sample at low and one at high elevation):
 
 ```R
-t.test(Sepal_length ~ Elevation, data = morph, mu = 0)
+# complicated syntax, showing the two samples (sepal lengths at high and low elevation)
 t.test(morph$Sepal_length[morph$Elevation == "hoch"], morph$Sepal_length[morph$Elevation == "tief"], data = morph, mu = 0)
+
+# shorter and more elegant formula notation. 
+t.test(Sepal_length ~ Elevation, data = morph, mu = 0)
 ```
 
-![logo]
-- What is the null and alternative hypothesis? 
-- And what is the test result?
-
-
-Again, the same test can be accomplished using `lm` or `aov`, which can however be used for much more complex tests.
-
-You might ask yourself when to use `aov` and when to use `lm`. This depends on your *hypothesis* and on the *intent* of your analysis. The underlying calculations are similar (`aov` actually calls `lm`, both rely on the same least squares method):
+Again, the same test can be accomplished using `lm` or `aov`. A `summary` on `lm` will give you effect size estimates, while `aov` will give you the ANOVA table.
 
 ```R
 summary(aov(Sepal_length ~ Elevation, data = morph))
 summary(lm(Sepal_length ~ Elevation, data = morph))
 ```
 
-However, a `summary` on `lm` will give you effect size estimates, while `aov` will give you the ANOVA table.
-
 ![logo]
+- What is the null and alternative hypothesis? 
 - What is the estimated effect size of Elevation?
 - How do you interpret the effect estimate?
+- Is the test significant?
+
 
 The **one-way ANOVA** allows for comparing more then just two groups (i.e. one treatment factor can have more than two levels). 
 
@@ -85,6 +82,13 @@ summary(aov(Sepal_length ~ Infection * Elevation + Petal_length, data = morph))
 ```R
 plot(glm(Stalk_count ~ Infection * Elevation, family = "Gamma", data = morph))
 ```
+
+### ANOVA versus linear models
+Now that you know that you can basically replace any `t.test` with a call to `lm` or `aov`, you might ask yourself when to use `aov` and when to use `lm`. This depends on your *hypothesis* and on the *intent* of your analysis. The underlying calculations are similar (`aov` actually calls `lm`, both rely on the same least squares method).
+
+
+![logo]
+- Your research question is:  
 
 ***
 
