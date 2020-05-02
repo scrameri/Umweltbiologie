@@ -35,36 +35,33 @@ summary(morph) # gives a summary for each variable
 summary(morph$Staengel_hoehe) # gives a summary for one variable
 ```
 
-This dataset contains morphological measurements of eight populations of *Dianthus carthusianorum* taken in Summer 2015 in Wallis (Switzerland). Populations are located in two classes of elevation (4 high, 4 low elevation).
+This dataset contains morphological measurements of eight populations of [*Dianthus carthusianorum*](https://www.infoflora.ch/de/flora/dianthus-carthusianorum.html) taken in Summer 2015 in Wallis (Switzerland). Populations were located in two classes of elevation (4 high, 4 low elevation).
 
-A few facts about *D. carthusianorum*
-- Karthäuser-Nelke, family Caryophyllaceae like Silene
+A few facts about [*D. carthusianorum*](https://de.wikipedia.org/wiki/Kart%C3%A4usernelke)
+- Karthäuser-Nelke in German, family Caryophyllaceae like *Silene*
 - native to Middle Europe, in dry habitats from colline to alpine (introduced to N America) 
-- gynodioecious, meaning that there are female and hermaphroditic individuals
+- [gynodioecious](https://en.wikipedia.org/wiki/Gynodioecy), meaning that there are female and hermaphroditic individuals
 - perennial (or biennial), meaning that plants survive winter as rosettes or seeds.
 - insect-pollinated
-- parasite: fungus Microbothryum dianthorum (anther smut fungus) that causes sterility and is transmitted by pollinators
+- parasite: fungus *Microbothryum dianthorum* (anther smut fungus) that causes sterility and is transmitted by pollinators
 
 A few facts about the dataset
 - ID: individual ID
 - Population: population ID
-- Elevation: elevation class (hoch = subalpine, tief = colline)
+- Elevation: elevation class
 - Date: measurement date
 - Infection: whether a plant was infected or healthy
 - Sex: hermaphroditic versus female
-- Stalk_height: mean stalk height (mm)
+- Stalk_height: mean stalk height per plant (mm)
 - Stalk_count: number of stalks per plant
 - Bud_count: number of buds per plant
 - Flower_count: number of open flowers per plant
 - Flower_diam: flower (corolla) diameter (mm)
-- Petal_length: petal length (mm)
-- Petal_width: petal width (mm)
-- Sepal_length: sepal length (mm)
-- Sepal_width: sepal width (mm)
+- Petal and Sepal lengths and widths (mm)
 - Rosette_diam1: diameter of first rosette (mm) - only recorded at high elevation
 - Rosette_diam2: diameter of second rosette (mm) - only recorded at high elevation
 
-The experimental design and measurements have been done by Ursina Walther (a PhD student in our group). She was interested in studying the evolution of floral traits in this species, especially in relation to the interaction between the plants and their Microbothryum parasite.
+The experimental design and measurements have been done by [Ursina Walther](https://peg.ethz.ch/people/person-detail.html?persid=158239) (a PhD student in our group). She was interested in studying the evolution of floral traits in this species, especially in relation to the interaction between the plants and their Microbothryum parasite.
 
 #### Question 1: 
 Based on what you now know about the study and the data
@@ -127,7 +124,7 @@ ggplot(morph, aes(x = Elevation, fill = Infection)) +
 
 ```
 
-Since we have 17 variables, plotting all of them against each other would be tedious. For datasets with a moderate number of variables, you can use the ggpairs() function to get a graphical overview over many or all variables at once with a single line of code. With 17 variables, plotting all against all would lead to too many (289) plots, so let us subset the variables.
+Given that we have 17 variables, plotting all of them against each other would be tedious. For datasets with a moderate number of variables, you can use the ```ggpairs``` function from the *GGally* package to get a graphical overview over many or all variables at once with a single line of code. With 17 variables, plotting all against all would lead to too many (289) plots. Let us therefore subset the variables.
 
 You can use ```grep``` and [**regular expressions**](https://regex101.com/) to find the indices of certain variable names, this often saves code.
 
