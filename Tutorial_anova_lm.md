@@ -4,10 +4,9 @@
 
 ANOVA using `aov` and (GENERALIZED) LINEAR MODELS using `lm`or `glm` are closely related to each other and differ maintly in intent of analysis and default presentation of results.
 
-You can think of them as extensions of a two-sample t-test. Remember that the two-sample t-test allows to test the difference in the response variable (a.k.a. dependent variable, measure variable, 
-Y variable) between two levels of one factor (a.k.a. predictor variable, independent variable, X variable). A common example is the difference in human height (Y) between two sexes (X).
+You can think of them as extensions of a two-sample t-test. Remember that the two-sample t-test allows to test the difference in the **response** variable (a.k.a. dependent variable, measure variable, Y variable) between two levels of one factor (a.k.a. **predictor** variable, independent variable, X variable). A common example is the difference in human height (Y) between two sexes (X).
 
-Let us start with a one-sample t.test:
+Let us start with a [**one-sample t-test**] (https://en.wikipedia.org/wiki/Student%27s_t-test):
 
 ```R
 t.test(morph$Sepal_length, mu = 0)
@@ -17,10 +16,13 @@ t.test(morph$Sepal_length, mu = 0)
 - What is the null and alternative hypothesis? 
 - And what is the test result?
 
-This test can also be accomplished by `lm`.
-summary(lm(Sepal_length ~ 1, data = morph))
+This test can also be accomplished by `lm` by fitting :
 
-Let us now extend this to a TWO-SAMPLE T-TEST (one sample at low and one at high elevation):
+```R
+summary(lm(Sepal_length ~ 1, data = morph))
+```
+
+Let us now extend this to a **two-sample t-test** (one sample at low and one at high elevation):
 
 ```R
 t.test(Sepal_length ~ Elevation, data = morph, mu = 0)
@@ -32,36 +34,35 @@ t.test(morph$Sepal_length[morph$Elevation == "hoch"], morph$Sepal_length[morph$E
 - And what is the test result?
 
 
-Again, the same test can be accomplished using lm() or aov(), which can however be used for much more complex tests.
+Again, the same test can be accomplished using `lm` or `aov`, which can however be used for much more complex tests.
 
-You might ask yourself when to use aov() and when to use lm(). This depends on your HYPOTHESIS and on the INTENT of your analysis. The underlying calculations are similar (aov() actually calls lm(), both rely on the same least squares method):
+You might ask yourself when to use `aov` and when to use `lm`. This depends on your *hypothesis* and on the *intent* of your analysis. The underlying calculations are similar (`aov` actually calls `lm`, both rely on the same least squares method):
 
 ```R
 summary(aov(Sepal_length ~ Elevation, data = morph))
 summary(lm(Sepal_length ~ Elevation, data = morph))
 ```
 
-However, lm() will give you effect size estimates
+However, a `summary` on `lm` will give you effect size estimates, while `aov` will give you the ANOVA table.
 
 ![logo]
 - What is the estimated effect size of Elevation?
 - How do you interpret the effect estimate?
 
-The ONE-WAY ANOVA allows for comparing more then just two groups (i.e. one treatment factor can have more than two levels). 
+The **one-way ANOVA** allows for comparing more then just two groups (i.e. one treatment factor can have more than two levels). 
 
 Tests with more than 2 levels in an explanatory factor can have different intents: 
-1. test for an OVERALL effect of a factor such as Population on calyx length
-2. test for an effect of a SPECIFIC treatment relative to a CONTROL, including 
-     effect size estimates
+1. test for an *overall* effect of a factor such as Population on calyx length
+2. test for an effect of a *specific* treatment relative to a *control*, including effect size estimates
 
-If your goal is 1., then you can use aov():
+If your goal is 1., then you can use `aov`:
 
 ```R
 summary(aov(Sepal_length ~ Population, data = morph))
 
 ```
 
-If your goal is 2., then you can use lm():
+If your goal is 2., then you can use `lm`:
 
 ```R
 summary(lm(Sepal_length ~ Infection, data = morph))
@@ -70,17 +71,17 @@ summary(lm(Sepal_length ~ Population, data = morph))
 
 There are many extensions to the t-test and one-way ANOVA. Here is an overview:
 
-- The FACTORIAL ANOVA extends the one-way ANOVA to test >1 treatment factors (each with two or more levels), including interactions:
+- The **Factorial ANOVA** extends the one-way ANOVA to test >1 treatment factors (each with two or more levels), including interactions:
 ```R
 summary(aov(Sepal_length ~ Infection * Elevation, data = morph))
 
 ```
-- ANCOVA allows for the mixed use of numerical and categorical predictors.
+- The **ANCOVA** allows for the mixed use of numerical and categorical predictors.
 
 ```R
 summary(aov(Sepal_length ~ Infection * Elevation + Petal_length, data = morph))
 ```
-- GENERALIZED LINEAR MODEL extends ANCOVA by allowing for non-normal error distribution (logistic regression, poisson regression, ...).
+- **Generalized linear models** extend ANCOVA by allowing for non-normal error distribution (logistic regression, poisson regression, ...).
 ```R
 plot(glm(Stalk_count ~ Infection * Elevation, family = "Gamma", data = morph))
 ```
