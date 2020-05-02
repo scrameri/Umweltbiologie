@@ -188,3 +188,6 @@ anova(mod.3, mod.4)
 
 ![logo]
 - Which model (simple or complex) would you choose if the anova F-test turns out not significant, and why?
+
+
+[logo]: https://img.icons8.com/flat_round/64/000000/question-mark.png "Question"
