@@ -65,7 +65,9 @@ The experimental design and measurements have been done by [Ursina Walther](http
 
 ##### Question 1: 
 
-![alt text](http://www.free-icons-download.net/question-mark-logo-icon-76440.png)
+![Question 1]```<div>Icons made by <a href="https://www.flaticon.com/authors/prosymbols" title="Prosymbols">Prosymbols</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>```
+
+
 
 Based on what you now know about the study and the data:
 - what are the response variable(s)?
