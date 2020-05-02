@@ -65,7 +65,7 @@ The experimental design and measurements have been done by [Ursina Walther](http
 
 ##### Question 1: 
 
-![Question 1]```<div>Icons made by <a href="https://www.flaticon.com/authors/prosymbols" title="Prosymbols">Prosymbols</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>```
+<div>Icons made by <a href="https://www.flaticon.com/authors/prosymbols" title="Prosymbols">Prosymbols</a> from <a href="https://www.flaticon.com/" title="Question 1">www.flaticon.com</a></div>
 
 
 
