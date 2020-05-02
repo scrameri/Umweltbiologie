@@ -138,49 +138,47 @@ You can increase X to shorten reaction time, but this effect will depend on the 
 That is, the amount of coffee interacts with the amount of whisky.
 
 
-# Create interaction plots
-' R implements some methods to visualize potential interactions. The idea is to visualize the mean (or other
-  summary) value of the response Y at different levels of an explanatory variable of interest (x.factor), 
-  depending on the level of another and potentially interacting explanatory factor (trace.factor).
-'
-' Let us assume that you are interested in testing the effect of Infection and Altitude on the Sepal length.
-  Before you fit any model, make sure to plot the data to get a better feeling for it.
-'
+`R` implements some methods to visualize potential interactions. The idea is to visualize the mean (or other summary) value of the response Y at different levels of an explanatory variable of interest (x.factor), depending on the level of another and potentially interacting explanatory factor (trace.factor).
 
+Let us assume that you are interested in testing the effect of Infection and Altitude on the Sepal length. Before you fit any model, make sure to plot the data to get a better feeling for it.
+
+```R
 ggplot(data = morph, aes(x = Infection, y = Petal_length)) + 
   geom_boxplot(alpha = 0.6) + 
   facet_wrap(~Elevation) +
   theme_bw()
+```
 
-' Sepal length appears to be lower in some infected individuals, but that does not seem to be the case in 
-  low elevation habitats. That is, the effect of Infection on Sepal length appears to depend on elevation.
+Sepal length appears to be lower in some infected individuals, but that does not seem to be the case in low elevation habitats. That is, the effect of Infection on Sepal length appears to depend on elevation.
 
-  The following plot visualizes potential interactions. If the lines cross, the factors strongly interact.
-'
+The following plot visualizes potential interactions. If the lines cross, the factors strongly interact.
+
+```R
 interaction.plot(x.factor = morph$Infection, trace.factor = morph$Elevation, response = morph$Petal_length, 
                  fun = mean, xlab = "Infection", ylab = "Petallänge (Mittelwerte)")
+```
+Now lets compare two linear models of Sepal length, once with and once without interaction term:
 
-' Now lets compare two linear models of Sepal length, once with and once without interaction term:
-'
+```R
 par(mfrow=c(2,2))
 summary(mod.3 <- lm(log(Petal_length) ~ Elevation+Infection, data = morph))
 plot(mod.3)
 par(mfrow=c(1,1))
+```
 
-' Nothing looks significant here, although the model fit does not look bad.'
+Nothing looks significant here, although the model fit does not look bad.
 
+```R
 par(mfrow=c(2,2))
 summary(mod.4 <- lm(log(Petal_length) ~ Elevation*Infection, data = morph))
 plot(mod.4)
 par(mfrow=c(1,1))
+```
 
-' If the interaction term is included, we get slightly better-looking residuals, and 
-  both explanatory factors and the interaction turn out significant. This illustrates that interaction terms
-  can hugely influence test results and intepretations.
-'
+If the interaction term is included, we get slightly better-looking residuals, and both explanatory factors and the interaction turn out significant. This illustrates that interaction terms can hugely influence test results and intepretations!
 
 ### Compare nested models
-You can formally test two nested models (i.e. fitted to the same data, one model with one or more additional model terms) using the anova() function. If the F-Test turns out significant, it means that the LARGER / COMPLEX model (in our case, the model including the interaction term) is a BETTER fit to the data, and should thus be preferred over the smaller / simpler model.
+You can formally test two nested models (i.e. fitted to the same data, one model with one or more additional model terms) using the `anova` function. If the F-Test turns out significant, it means that the LARGER / COMPLEX model (in our case, the model including the interaction term) is a BETTER fit to the data, and should thus be preferred over the smaller / simpler model.
 
 ```R
 anova(mod.3, mod.4)
