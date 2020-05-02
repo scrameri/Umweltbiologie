@@ -71,6 +71,8 @@ Based on what you now know about the study and the data:
 - what are the response variable(s)?
 - what are the explanatory variable(s)?
 
+***
+
 #### Plot the data
 Use *Scatterplots* to plot two numeric variables against each other.
 ```R
@@ -158,6 +160,7 @@ graphics.off()
 ##### Question 2: 
 Can you produce a plot of ```Petal_length ~ Sepal_length``` with points color-coded for ```Infection```?
 
+***
 
 #### Check the distribution of your variables
 Knowing the distribution of your variables is important, especially if you want to create models of them that make certain assumptions on distributions. You have already seen that the **histogram** is a good visualization of a variable's distribution because deviations from a normal distribution become intuitively apparent.
