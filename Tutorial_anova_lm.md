@@ -175,7 +175,7 @@ par(mfrow=c(1,1))
 
 ![logo]
 - Which probability distribution is best at describing ```Stalk_count```? 
-- What does this mean for a model ```Stalk_count ~ Elevation``` fitted to this data?
+- What does this mean for an ANOVA model ```Stalk_count ~ Elevation``` fitted to this data?
 
 
 [logo]: https://img.icons8.com/flat_round/64/000000/question-mark.png "Question"
