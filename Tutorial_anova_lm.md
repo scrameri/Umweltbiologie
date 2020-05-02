@@ -63,7 +63,7 @@ A few facts about the dataset
 
 The experimental design and measurements have been done by [Ursina Walther](https://peg.ethz.ch/people/person-detail.html?persid=158239) (a PhD student in our group). She was interested in studying the evolution of floral traits in this species, especially in relation to the interaction between the plants and their Microbothryum parasite.
 
-[logo] Based on what you now know about the study and the data:
+![logo] Based on what you now know about the study and the data:
 - what are the response variable(s)?
 - what are the explanatory variable(s)?
 
