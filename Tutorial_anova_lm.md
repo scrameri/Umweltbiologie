@@ -67,6 +67,9 @@ The experimental design and measurements have been done by [Ursina Walther](http
 
 <div>Icons made by <a href="https://www.flaticon.com/authors/prosymbols" title="Prosymbols">Prosymbols</a> from <a href="https://www.flaticon.com/" title="Question 1">www.flaticon.com</a></div>
 
+<img src="https://img.icons8.com/flat_round/64/000000/question-mark.png"/>
+
+[Question 1][logo]
 
 
 Based on what you now know about the study and the data:
@@ -182,3 +185,6 @@ par(mfrow=c(1,1))
 ##### Question 3:
 - Which probability distribution is best at describing stalk count? 
 - What does this mean for a model ```Staengel_anz ~ Elevation``` fitted to this data?
+
+
+[logo]: https://img.icons8.com/flat_round/64/000000/question-mark.png "Question"
