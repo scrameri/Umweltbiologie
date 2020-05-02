@@ -1,5 +1,7 @@
 ## Praktikum Umweltbiologie - Ecological Genetics
 
+### Tutorial on Data Exploration
+
 #### Install packages if needed
 
 ```R
@@ -125,7 +127,7 @@ ggplot(morph, aes(x = Hoehe, fill = Infektion)) +
 
 ```
 
-Now since we have 17 variables, plotting all of them against each other would be tedious. For datasets with a moderate number of variables, you can use the ggpairs() function to get a graphical overview over many or all variables at once with a single line of code. With 17 variables, plotting all against all would lead to too many (289) plots, so let us subset the variables.
+Since we have 17 variables, plotting all of them against each other would be tedious. For datasets with a moderate number of variables, you can use the ggpairs() function to get a graphical overview over many or all variables at once with a single line of code. With 17 variables, plotting all against all would lead to too many (289) plots, so let us subset the variables.
 
 You can use ```grep``` and **regular expressions** to find the indices of certain variable names, this often saves code.
 
@@ -154,3 +156,21 @@ pairs.sterile # or print(pairs.sterile)
 pairs.fertile # or print(pairs.fertile)
 graphics.off()
 ```
+
+#### Check the distribution of your variables
+Knowing the distribution of your variables is important, especially if you want to create models of them that make certain assumptions on these distributions. You have already seen that the **histogram** is a good visualization of a variable's distribution because deviations from a normal distribution become apparent.
+
+But which statistical distribution is best at describing your data if not a normal distribution? Simulations can help here, and the ```R``` package *EnvStats* allows for simulation of different probability distributions, and comparison of these against your data in so-called **QQ Plots** (Quantile-Quantile plots).
+
+Let us explore the distribution of the variable ```Staengel_anz``` (stalk count):
+```R
+par(mfrow=c(2,2))
+hist(morph$Staengel_anz, breaks = 20, col = "tomato")
+qqPlot(morph$Staengel_anz, distribution = "pois", estimate.params = TRUE, add.line = TRUE, points.col = "chocolate")
+qqPlot(morph$Staengel_anz, distribution = "gamma", estimate.params = TRUE, add.line = TRUE, points.col = "cadetblue")
+qqPlot(morph$Staengel_anz, distribution = "norm", estimate.params = TRUE, add.line = TRUE, points.col = "purple")
+par(mfrow=c(1,1))
+```
+
+#### Question 3:
+Which probability distribution is best at describing stalk count? What does this mean for a model ```Staengel_anz ~ Hoehe``` fitted to this data?
