@@ -101,7 +101,7 @@ hist(morph$Kelch_laenge, breaks = 20)
 ggplot(data = morph, aes(x = Kelch_laenge)) + geom_histogram(bins = 20) 
 ```
 
-#### Use **Barplots** only to plot factor level counts
+#### Use **Barplots** to plot all values of a variable or a table of counts
 ```
 # base
 barplot(table(morph$Population))
