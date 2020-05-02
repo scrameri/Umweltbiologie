@@ -2,7 +2,7 @@
 
 ### Fitting models to data
 
-ANOVA using aov() and (GENERALIZED) LINEAR MODELS using lm() or glm() are closely related to each other and differ maintly in intent of analysis and default presentation of results. 
+ANOVA using `aov` and (GENERALIZED) LINEAR MODELS using `lm`or `glm` are closely related to each other and differ maintly in intent of analysis and default presentation of results.
 
 You can think of them as extensions of a two-sample t-test. Remember that the two-sample t-test allows to test the difference in the response variable (a.k.a. dependent variable, measure variable, 
 Y variable) between two levels of one factor (a.k.a. predictor variable, independent variable, X variable). A common example is the difference in human height (Y) between two sexes (X).
@@ -50,18 +50,18 @@ However, lm() will give you effect size estimates
 The ONE-WAY ANOVA allows for comparing more then just two groups (i.e. one treatment factor can have more than two levels). 
 
 Tests with more than 2 levels in an explanatory factor can have different intents: 
-a) test for an OVERALL effect of a factor such as Population on calyx length
-b) test for an effect of a SPECIFIC treatment relative to a CONTROL, including 
+1. test for an OVERALL effect of a factor such as Population on calyx length
+2. test for an effect of a SPECIFIC treatment relative to a CONTROL, including 
      effect size estimates
 
-If your goal is a), then you can use aov():
+If your goal is 1., then you can use aov():
 
 ```R
 summary(aov(Sepal_length ~ Population, data = morph))
 
 ```
 
-If your goal is b), then you can use lm():
+If your goal is 2., then you can use lm():
 
 ```R
 summary(lm(Sepal_length ~ Infection, data = morph))
