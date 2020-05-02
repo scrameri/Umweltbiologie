@@ -72,7 +72,7 @@ Based on what you now know about the study and the data
 #### Question 2:
 There are factors and numerical variables in the data. If you want to plot one or two of them, which plots do you use for which (combination of) variables?
 
-#### Use **Scatterplots** to plot two numeric variables against each other
+#### Use *Scatterplots* to plot two numeric variables against each other
 ```R
 # base
 plot(Kelch_laenge ~ Kronblatt_laenge, data = morph)
@@ -80,10 +80,9 @@ plot(Kelch_laenge ~ Kronblatt_laenge, data = morph)
 # ggplot2
 ggplot(data = morph, aes(x = Kronblatt_laenge, y = Kelch_laenge)) + geom_point()
 ```
+NOTE: scatterplots can be more informative if different sizes and symbols are used.
 
-#### Use **Boxplots** to plot a numeric variable against a factor variable
-NOTE: boxplots are summarizing the data and should not be used if you have less than eight data points per factor level.
-
+#### Use *Boxplots* to plot a numeric variable against a factor variable
 ```R
 # base
 boxplot(Kelch_laenge ~ Hoehe, data = morph)
@@ -91,6 +90,8 @@ boxplot(Kelch_laenge ~ Hoehe, data = morph)
 # ggplot2
 ggplot(data = morph, aes(x = Hoehe, y = Kelch_laenge)) + geom_boxplot()
 ```
+NOTE: boxplots are summarizing the data and should not be used if you have less than eight data points per factor level.
+
 
 #### Use *Histograms* to plot a variable's distribution
 ```R
@@ -100,8 +101,9 @@ hist(morph$Kelch_laenge, breaks = 20)
 # ggplot2
 ggplot(data = morph, aes(x = Kelch_laenge)) + geom_histogram(bins = 20) 
 ```
+NOTE: the argument ```breaks``` can be used to fine-tune the binning of values into histogram categories.
 
-#### Use *Barplots* to plot all values of a variable or a table of counts
+#### Use *Barplots* to plot all values of a single variable or a table of counts
 ```
 # base
 barplot(table(morph$Population))
@@ -109,16 +111,18 @@ barplot(table(morph$Population))
 # ggplot2
 ggplot(data = morph, aes(x = Population)) + geom_bar(stat = "count")
 ```
+NOTE: barplots are rarely used.
 
 #### Use *Mosaic Plots* or *Stacked Barplots* to plot contingency tables of two factor variables against each other
 ```R
 # base
-mosaicplot(table(morph$Infektion, morph$Hoehe), main = "Mosaicplot")
+mosaicplot(table(morph$Hoehe,morph$Infektion), main = "Mosaicplot")
 
 # ggplot2
-ggplot(morph, aes(x = Infektion, fill = Hoehe)) + 
+ggplot(morph, aes(x = Hoehe, fill = Infektion)) + 
   geom_bar(position = "fill") + 
   labs(y = "Proportion") +
-  theme_bw()
-```
+  ggtitle("Stacked Barplot")
 
+```
+NOTE: 
