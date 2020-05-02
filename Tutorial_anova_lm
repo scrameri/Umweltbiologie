@@ -1,6 +1,6 @@
-***Praktikum Umweltbiologie - Ecological Genetics***
+# Praktikum Umweltbiologie - Ecological Genetics
 
-'''
+```
 ## Install packages if needed
 need.pckg <- c("GGally","ggplot2","EnvStats") # needed for this script
 if (any(!need.pckg %in% installed.packages())) {
@@ -9,4 +9,4 @@ if (any(!need.pckg %in% installed.packages())) {
     install.packages(i)
   }
 }
-'''
+```
