@@ -153,7 +153,7 @@ graphics.off()
 ```
 
 ##### Question 2: 
-Can you produce a plot of Petal_length ~ Sepal_length with points color-coded for Infection?
+Can you produce a plot of ```Petal_length ~ Sepal_length``` with points color-coded for ```Infection```?
 
 
 #### Check the distribution of your variables
