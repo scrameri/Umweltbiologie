@@ -2,9 +2,9 @@
 
 ### Fitting models to data
 
-ANOVA using `aov` and (GENERALIZED) LINEAR MODELS using `lm`or `glm` are closely related to each other and differ maintly in intent of analysis and default presentation of results.
+**Analysis of Variance (ANOVA)** using `aov` and (generalized) **linear models** using `lm`or `glm` are closely related to each other and differ maintly in *intent* of analysis and default *presentation* of results.
 
-You can think of them as extensions of a two-sample t-test. Remember that the two-sample t-test allows to test the difference in the **response** variable (a.k.a. dependent variable, measure variable, Y variable) between two levels of one factor (a.k.a. **predictor** variable, independent variable, X variable). A common example is the difference in human height (Y) between two sexes (X).
+You can think of them as extensions of a two-sample t-test. Remember that the two-sample t-test allows to test the difference in a dependent variable (a.k.a. **response** variable, measure variable, Y variable) between two levels of one factor (a.k.a. **predictor** variable, independent variable, X variable). A common example is the difference in human height (the dependent variable) between two sexes (the predictor variable).
 
 Let us start with a [**one-sample t-test**] (https://en.wikipedia.org/wiki/Student%27s_t-test):
 
