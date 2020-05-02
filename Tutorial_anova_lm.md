@@ -43,14 +43,14 @@ A few facts about [*D. carthusianorum*](https://de.wikipedia.org/wiki/Kart%C3%A4
 - [gynodioecious](https://en.wikipedia.org/wiki/Gynodioecy), meaning that there are female and hermaphroditic individuals
 - perennial (or biennial), meaning that plants survive winter as rosettes or seeds
 - insect-pollinated
-- parasite: fungus *Microbothryum dianthorum* (anther smut fungus) that causes sterility and is transmitted by pollinators
+- parasite: fungus [*Microbothryum*](https://fr.wikipedia.org/wiki/Microbotryum) *dianthorum* (anther smut fungus) that causes sterility and is transmitted by pollinators
 
 A few facts about the dataset
 - ID: individual ID
 - Population: population ID
 - Elevation: elevation class
 - Date: measurement date
-- Infection: whether a plant was infected or healthy
+- Infection: whether a plant was [infected](https://upload.wikimedia.org/wikipedia/commons/e/ef/Microbotryum_dianthorum_Dianthus_sp._2019_07_18_05.jpg) or healthy
 - Sex: whether a plant was hermaphroditic or female
 - Stalk_height: mean stalk height per plant (mm)
 - Stalk_count: number of stalks per plant
