@@ -20,19 +20,13 @@ library("ggplot2") # for ggplot()
 library("EnvStats") # for qqPlot()
 ```
 
-### Read data
+### Read the data
 ```R
-morph <- read.csv("Puzzle_ANOVA_LM.csv", header = TRUE)
+morph <- read.csv("Puzzle_ANOVA_LM.csv", sep = ",", header = TRUE)
 ```
+NOTE: the .csv file uses `,` rather than `;` as field separators, which can cause troubles when opening the file in Excel on Mac. You can also save a version separated with `;`, but you will then need to set `sep=";"`, because the default argument is `read.csv(file, sep = ',')`. Also have a look at the `read.csv2` function.
 
 ### Get an overview over the dataset
-
-```R
-str(morph) # lists all variables in the data.frame and their classes
-summary(morph) # gives a summary for each variable 
-summary(morph$Staengel_hoehe) # gives a summary for one variable
-```
-
 This dataset contains morphological measurements of eight populations of [*Dianthus carthusianorum*](https://www.infoflora.ch/de/flora/dianthus-carthusianorum.html) taken in Summer 2015 in Wallis (Switzerland). Populations were located in two classes of elevation (4 high, 4 low elevation).
 
 A few facts about [*D. carthusianorum*](https://de.wikipedia.org/wiki/Kart%C3%A4usernelke)
@@ -61,6 +55,15 @@ A few facts about the dataset
 
 The experimental design and measurements have been done by [Ursina Walther](https://peg.ethz.ch/people/person-detail.html?persid=158239) (a PhD student in our group). She was interested in studying the evolution of floral traits in this species, especially in relation to the interaction between the plants and their Microbothryum parasite.
 
+Before starting any analysis, always check that the data was read in correctly
+
+```R
+str(morph) # lists all variables in the data.frame and their classes
+dim(morph) # gives both nrow() and ncol() of the dataset
+summary(morph$Stalk_height) # gives a summary for one variable
+#summary(morph) # gives a summary for each variable
+```
+
 ![logo] Based on what you now know about the study and the data:
 - what are the response variable(s)?
 - what are the explanatory variable(s)?
@@ -68,6 +71,8 @@ The experimental design and measurements have been done by [Ursina Walther](http
 ***
 
 ### Plot the data
+There are various plotting techniques to visualize data. These are the most important ones:
+
 Use **Scatterplots** to plot two numeric variables against each other.
 ```R
 # base
@@ -97,7 +102,7 @@ hist(morph$Sepal_length, breaks = 20)
 # ggplot2
 ggplot(data = morph, aes(x = Sepal_length)) + geom_histogram(bins = 20)  
 ```
-NOTE: the argument ```breaks``` can be used to fine-tune the binning of values into histogram categories.
+NOTE: the argument `breaks` can be used to fine-tune the binning of values into histogram categories.
 
 Use **Barplots** to plot all values of a single variable or a table of counts.
 ```R
@@ -121,9 +126,9 @@ ggplot(morph, aes(x = Elevation, fill = Infection)) +
 
 ```
 
-Given that we have 17 variables, plotting all of them against each other would be tedious. For datasets with a moderate number of variables, you can use the ```ggpairs``` function from the *GGally* package to get a graphical overview over many or all variables at once with a single line of code. The function takes care of factors and numerical variables automatically.
+Given that we have 17 variables, plotting all of them against each other would be tedious. For datasets with a moderate number of variables, you can use the `ggpairs` function from the *GGally* package to get a graphical overview over many variables at once with a single line of code. The function takes care of factors and numerical variables automatically.
 
-With 17 variables, plotting all against all would lead to too many (289) plots. Let us therefore subset the variables. You can use ```grep``` and [**regular expressions**](https://regex101.com/) to find the indices of certain variable names, this often saves code.
+With 17 variables, plotting all against all would lead to too many (289) plots on a single page. Let us therefore subset the variables. You can use `grep` and [**regular expressions**](https://regex101.com/) to find the indices of certain variable names, this often saves code.
 
 ```R
 # this returns the index of variable names *starting* with 'Kron' (^ specifies the *start*)
@@ -143,7 +148,8 @@ pairs.fertile <- ggpairs(data = morph, columns = c("Population","Elevation","Inf
 pairs.sterile <- ggpairs(data = morph, columns = c("Population","Elevation","Infection","Sex", vars.sterile))
 ```
 
-This saves a .pdf file of the specified size
+This code saves a .pdf file of the specified size. It is more reproducible (and therefore more scientific) to produce plots with such code rather than by manually exporting a plot from R Studio. The specified `height` and `width` also prevents the saved plot to be smaller or larger depending on your computer screen.
+
 ```R
 pdf("Pairsplots.pdf", height = 15, width = 15)
 pairs.sterile # or print(pairs.sterile)
