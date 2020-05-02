@@ -63,14 +63,12 @@ A few facts about the dataset
 
 The experimental design and measurements have been done by [Ursina Walther](https://peg.ethz.ch/people/person-detail.html?persid=158239) (a PhD student in our group). She was interested in studying the evolution of floral traits in this species, especially in relation to the interaction between the plants and their Microbothryum parasite.
 
-#### Question 1: 
-Based on what you now know about the study and the data
+##### Question 1: 
+Based on what you now know about the study and the data:
 - what are the response variable(s)?
 - what are the explanatory variable(s)?
 
-#### Question 2:
-There are factors and numerical variables in the data. If you want to plot one or two of them, which plots do you use for which (combination of) variables?
-
+#### Plot the data
 Use *Scatterplots* to plot two numeric variables against each other.
 ```R
 # base
@@ -124,9 +122,9 @@ ggplot(morph, aes(x = Elevation, fill = Infection)) +
 
 ```
 
-Given that we have 17 variables, plotting all of them against each other would be tedious. For datasets with a moderate number of variables, you can use the ```ggpairs``` function from the *GGally* package to get a graphical overview over many or all variables at once with a single line of code. With 17 variables, plotting all against all would lead to too many (289) plots. Let us therefore subset the variables.
+Given that we have 17 variables, plotting all of them against each other would be tedious. For datasets with a moderate number of variables, you can use the ```ggpairs``` function from the *GGally* package to get a graphical overview over many or all variables at once with a single line of code. The function takes care of factors and numerical variables automatically.
 
-You can use ```grep``` and [**regular expressions**](https://regex101.com/) to find the indices of certain variable names, this often saves code.
+With 17 variables, plotting all against all would lead to too many (289) plots. Let us therefore subset the variables. You can use ```grep``` and [**regular expressions**](https://regex101.com/) to find the indices of certain variable names, this often saves code.
 
 ```R
 # this returns the index of variable names *starting* with 'Kron' (^ specifies the *start*)
@@ -154,12 +152,16 @@ pairs.fertile # or print(pairs.fertile)
 graphics.off()
 ```
 
+##### Question 2: 
+Can you produce a plot of Petal_length ~ Sepal_length with points color-coded for Infection?
+
+
 #### Check the distribution of your variables
-Knowing the distribution of your variables is important, especially if you want to create models of them that make certain assumptions on these distributions. You have already seen that the **histogram** is a good visualization of a variable's distribution because deviations from a normal distribution become apparent.
+Knowing the distribution of your variables is important, especially if you want to create models of them that make certain assumptions on distributions. You have already seen that the **histogram** is a good visualization of a variable's distribution because deviations from a normal distribution become intuitively apparent.
 
 But which statistical distribution is best at describing your data if not a normal distribution? Simulations can help here, and the ```R``` package *EnvStats* allows for simulation of different probability distributions, and comparison of these against your data in so-called **QQ Plots** (Quantile-Quantile plots).
 
-Let us explore the distribution of the variable ```Staengel_anz``` (stalk count):
+Let us explore the distribution of the variable ```Stalk_count```:
 ```R
 par(mfrow=c(2,2))
 hist(morph$Stalk_count, breaks = 20, col = "tomato")
@@ -169,5 +171,6 @@ qqPlot(morph$Stalk_count, distribution = "norm", estimate.params = TRUE, add.lin
 par(mfrow=c(1,1))
 ```
 
-#### Question 3:
-Which probability distribution is best at describing stalk count? What does this mean for a model ```Staengel_anz ~ Hoehe``` fitted to this data?
+##### Question 3:
+- Which probability distribution is best at describing stalk count? 
+- What does this mean for a model ```Staengel_anz ~ Elevation``` fitted to this data?
