@@ -74,7 +74,7 @@ Based on what you now know about the study and the data:
 ***
 
 #### Plot the data
-Use *Scatterplots* to plot two numeric variables against each other.
+Use **Scatterplots** to plot two numeric variables against each other.
 ```R
 # base
 plot(Kelch_laenge ~ Kronblatt_laenge, data = morph)
@@ -84,7 +84,7 @@ ggplot(data = morph, aes(x = Kronblatt_laenge, y = Kelch_laenge)) + geom_point()
 ```
 NOTE: scatterplots can be more informative if different symbols for an additional factor and sizes for an additional continuous variable are used.
 
-Use *Boxplots* to plot a numeric variable against a factor variable.
+Use **Boxplots** to plot a numeric variable against a factor variable.
 ```R
 # base
 boxplot(Sepal_length ~ Elevation, data = morph)
@@ -95,7 +95,7 @@ ggplot(data = morph, aes(x = Elevation, y = Sepal_length)) + geom_boxplot()
 NOTE: boxplots are summarizing the data and should not be used if you have less than eight data points per factor level.
 
 
-Use *Histograms* to plot a variable's distribution.
+Use **Histograms** to plot a variable's distribution.
 ```R
 # base
 hist(morph$Sepal_length, breaks = 20)
@@ -114,7 +114,7 @@ barplot(table(morph$Population))
 ggplot(data = morph, aes(x = Population)) + geom_bar(stat = "count")
 ```
 
-Use *Mosaic Plots* or *Stacked Barplots* to plot contingency tables of two factor variables against each other
+Use **Mosaic Plots** or **Stacked Barplots** to plot contingency tables of two factor variables against each other
 ```R
 # base
 mosaicplot(table(morph$Elevation,morph$Infection), main = "Mosaicplot")
@@ -157,7 +157,7 @@ pairs.fertile # or print(pairs.fertile)
 graphics.off()
 ```
 
-##### Question 2: 
+![Question 2](https://upload.wikimedia.org/wikipedia/commons/2/2f/QuestionMark.jpg)
 Can you produce a plot of ```Petal_length ~ Sepal_length``` with points color-coded for ```Infection```?
 
 ***
