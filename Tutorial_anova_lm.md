@@ -1,8 +1,6 @@
-## Praktikum Umweltbiologie - Ecological Genetics
+## Tutorial on Data Exploration
 
-### Tutorial on Data Exploration
-
-#### Install packages if needed
+### Install packages if needed
 
 ```R
 need.pckg <- c("GGally","ggplot2","EnvStats") # needed for this script
@@ -14,7 +12,7 @@ if (any(!need.pckg %in% installed.packages())) {
 }
 ```
 
-#### Load libraries
+### Load libraries
 
 ```R
 library("GGally") # for ggpairs()
@@ -22,12 +20,12 @@ library("ggplot2") # for ggplot()
 library("EnvStats") # for qqPlot()
 ```
 
-#### Read data
+### Read data
 ```R
 morph <- read.csv("Puzzle_ANOVA_LM.csv", header = TRUE)
 ```
 
-#### Get an overview over the dataset
+### Get an overview over the dataset
 
 ```R
 str(morph) # lists all variables in the data.frame and their classes
@@ -69,7 +67,7 @@ The experimental design and measurements have been done by [Ursina Walther](http
 
 ***
 
-#### Plot the data
+### Plot the data
 Use **Scatterplots** to plot two numeric variables against each other.
 ```R
 # base
@@ -101,7 +99,7 @@ ggplot(data = morph, aes(x = Sepal_length)) + geom_histogram(bins = 20)
 ```
 NOTE: the argument ```breaks``` can be used to fine-tune the binning of values into histogram categories.
 
-Use *Barplots* to plot all values of a single variable or a table of counts.
+Use **Barplots** to plot all values of a single variable or a table of counts.
 ```R
 # base
 barplot(table(morph$Population))
@@ -158,7 +156,7 @@ graphics.off()
 
 ***
 
-#### Check the distribution of your variables
+### Check the distribution of your variables
 Knowing the distribution of your variables is important, especially if you want to create models of them that make certain assumptions on distributions. You have already seen that the **histogram** is a good visualization of a variable's distribution because deviations from a normal distribution become intuitively apparent.
 
 But which statistical distribution is best at describing your data if not a normal distribution? Simulations can help here, and the ```R``` package *EnvStats* allows for simulation of different probability distributions, and comparison of these against your data in so-called **QQ Plots** (Quantile-Quantile plots).
