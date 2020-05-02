@@ -41,7 +41,7 @@ A few facts about [*D. carthusianorum*](https://de.wikipedia.org/wiki/Kart%C3%A4
 - Karthäuser-Nelke in German, family Caryophyllaceae like *Silene*
 - native to Middle Europe, in dry habitats from colline to alpine (introduced to N America) 
 - [gynodioecious](https://en.wikipedia.org/wiki/Gynodioecy), meaning that there are female and hermaphroditic individuals
-- perennial (or biennial), meaning that plants survive winter as rosettes or seeds.
+- perennial (or biennial), meaning that plants survive winter as rosettes or seeds
 - insect-pollinated
 - parasite: fungus *Microbothryum dianthorum* (anther smut fungus) that causes sterility and is transmitted by pollinators
 
@@ -51,7 +51,7 @@ A few facts about the dataset
 - Elevation: elevation class
 - Date: measurement date
 - Infection: whether a plant was infected or healthy
-- Sex: hermaphroditic versus female
+- Sex: whether a plant was hermaphroditic or female
 - Stalk_height: mean stalk height per plant (mm)
 - Stalk_count: number of stalks per plant
 - Bud_count: number of buds per plant
@@ -64,6 +64,9 @@ A few facts about the dataset
 The experimental design and measurements have been done by [Ursina Walther](https://peg.ethz.ch/people/person-detail.html?persid=158239) (a PhD student in our group). She was interested in studying the evolution of floral traits in this species, especially in relation to the interaction between the plants and their Microbothryum parasite.
 
 ##### Question 1: 
+
+![alt text](http://www.free-icons-download.net/question-mark-logo-icon-76440.png)
+
 Based on what you now know about the study and the data:
 - what are the response variable(s)?
 - what are the explanatory variable(s)?
