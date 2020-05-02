@@ -86,10 +86,6 @@ plot(glm(Stalk_count ~ Infection * Elevation, family = "Gamma", data = morph))
 ### ANOVA versus linear models
 Now that you know that you can basically replace any `t.test` with a call to `lm` or `aov`, you might ask yourself when to use `aov` and when to use `lm`. This depends on your *hypothesis* and on the *intent* of your analysis. The underlying calculations are similar (`aov` actually calls `lm`, both rely on the same least squares method).
 
-
-![logo]
-- Your research question is:  
-
 ***
 
 ### Check model assumptions via Residual Analysis
@@ -162,6 +158,7 @@ The following plot visualizes potential interactions. If the lines cross, the fa
 interaction.plot(x.factor = morph$Infection, trace.factor = morph$Elevation, response = morph$Petal_length, 
                  fun = mean, xlab = "Infection", ylab = "Petallänge (Mittelwerte)")
 ```
+
 Now lets compare two linear models of Sepal length, once with and once without interaction term:
 
 ```R
@@ -170,7 +167,6 @@ summary(mod.3 <- lm(log(Petal_length) ~ Elevation+Infection, data = morph))
 plot(mod.3)
 par(mfrow=c(1,1))
 ```
-
 Nothing looks significant here, although the model fit does not look bad.
 
 ```R
@@ -180,7 +176,7 @@ plot(mod.4)
 par(mfrow=c(1,1))
 ```
 
-If the interaction term is included, we get slightly better-looking residuals, and both explanatory factors and the interaction turn out significant. This illustrates that interaction terms can hugely influence test results and intepretations!
+If the interaction term is included, we get slightly better-looking residuals, and both explanatory factors and the interaction turn out significant. This illustrates that interaction terms can hugely improve the model fit, and influence test results and intepretations!
 
 ### Compare nested models
 You can formally test two nested models (i.e. fitted to the same data, one model with one or more additional model terms) using the `anova` function. If the F-Test turns out significant, it means that the LARGER / COMPLEX model (in our case, the model including the interaction term) is a BETTER fit to the data, and should thus be preferred over the smaller / simpler model.
