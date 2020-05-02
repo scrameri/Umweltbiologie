@@ -72,7 +72,7 @@ Based on what you now know about the study and the data
 #### Question 2:
 There are factors and numerical variables in the data. If you want to plot one or two of them, which plots do you use for which (combination of) variables?
 
-#### Use *Scatterplots* to plot two numeric variables against each other
+Use *Scatterplots* to plot two numeric variables against each other
 ```R
 # base
 plot(Kelch_laenge ~ Kronblatt_laenge, data = morph)
@@ -82,7 +82,7 @@ ggplot(data = morph, aes(x = Kronblatt_laenge, y = Kelch_laenge)) + geom_point()
 ```
 NOTE: scatterplots can be more informative if different sizes and symbols are used.
 
-#### Use *Boxplots* to plot a numeric variable against a factor variable
+Use *Boxplots* to plot a numeric variable against a factor variable
 ```R
 # base
 boxplot(Kelch_laenge ~ Hoehe, data = morph)
@@ -93,7 +93,7 @@ ggplot(data = morph, aes(x = Hoehe, y = Kelch_laenge)) + geom_boxplot()
 NOTE: boxplots are summarizing the data and should not be used if you have less than eight data points per factor level.
 
 
-#### Use *Histograms* to plot a variable's distribution
+Use *Histograms* to plot a variable's distribution
 ```R
 # base
 hist(morph$Kelch_laenge, breaks = 20)
@@ -103,17 +103,16 @@ ggplot(data = morph, aes(x = Kelch_laenge)) + geom_histogram(bins = 20)
 ```
 NOTE: the argument ```breaks``` can be used to fine-tune the binning of values into histogram categories.
 
-#### Use *Barplots* to plot all values of a single variable or a table of counts
-```
+Use *Barplots* to plot all values of a single variable or a table of counts
+```R
 # base
 barplot(table(morph$Population))
 
 # ggplot2
 ggplot(data = morph, aes(x = Population)) + geom_bar(stat = "count")
 ```
-NOTE: barplots are rarely used.
 
-#### Use *Mosaic Plots* or *Stacked Barplots* to plot contingency tables of two factor variables against each other
+Use *Mosaic Plots* or *Stacked Barplots* to plot contingency tables of two factor variables against each other
 ```R
 # base
 mosaicplot(table(morph$Hoehe,morph$Infektion), main = "Mosaicplot")
@@ -125,4 +124,33 @@ ggplot(morph, aes(x = Hoehe, fill = Infektion)) +
   ggtitle("Stacked Barplot")
 
 ```
-NOTE: 
+
+Now since we have 17 variables, plotting all of them against each other would be tedious. For datasets with a moderate number of variables, you can use the ggpairs() function to get a graphical overview over many or all variables at once with a single line of code. With 17 variables, plotting all against all would lead to too many (289) plots, so let us subset the variables.
+
+You can use ```grep``` and **regular expressions** to find the indices of certain variable names, this often saves code.
+
+```R
+# this returns the index of variable names *starting* with 'Kron' (^ specifies the *start*)
+grep(pattern = "^Blueten_", x = names(morph))
+
+# this returns the index of variable names *ending* with 'breite' ($ specifies the *end*)
+grep(pattern = "breite$", x = names(morph)) 
+
+# if you put a line in (), the returned value will be printed to the console (saves a print() call)
+(vars.fertile <- names(morph)[grep(pattern = "^Blueten|^Knospen|^Kron|^Kelch", x = names(morph))])
+(vars.sterile <- names(morph)[grep(pattern = "^Staengel|^Rosetten", x = names(morph))])
+```
+
+This prepares the **Pairs Plots** (creates gg class objects that can be printed)
+```R
+pairs.fertile <- ggpairs(data = morph, columns = c("Population","Hoehe","Infektion","Geschlecht", vars.fertile))
+pairs.sterile <- ggpairs(data = morph, columns = c("Population","Hoehe","Infektion","Geschlecht", vars.sterile))
+```
+
+This saves a .pdf file of the specified size
+```R
+pdf("Pairsplots.pdf", height = 15, width = 15)
+pairs.sterile # or print(pairs.sterile)
+pairs.fertile # or print(pairs.fertile)
+graphics.off()
+```
