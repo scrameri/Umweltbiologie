@@ -63,3 +63,62 @@ A few facts about the dataset
 - Rosetten_durchm2: diameter of second rosette (mm) - only recorded at high elevation
 
 The experimental design and measurements have been done by Ursina Walther (a PhD student in our group). She was interested in studying the evolution of floral traits in this species, especially in relation to the interaction between the plants and their Microbothryum parasite.
+
+#### Question 1: 
+Based on what you now know about the study and the data
+- what are the response variable(s)?
+- what are the explanatory variable(s)?
+
+#### Question 2:
+There are factors and numerical variables in the data. If you want to plot one or two of them, which plots do you use for which (combination of) variables?
+
+#### Use **Scatterplots** to plot two numeric variables against each other
+```R
+# base
+plot(Kelch_laenge ~ Kronblatt_laenge, data = morph)
+
+# ggplot2
+ggplot(data = morph, aes(x = Kronblatt_laenge, y = Kelch_laenge)) + geom_point()
+```
+
+#### Use **Boxplots** to plot a numeric variable against a factor variable
+NOTE: boxplots are summarizing the data and should not be used if you have less than eight data points per factor level.
+
+```R
+# base
+boxplot(Kelch_laenge ~ Hoehe, data = morph)
+
+# ggplot2
+ggplot(data = morph, aes(x = Hoehe, y = Kelch_laenge)) + geom_boxplot()
+```
+
+#### Use **Histograms** to plot a variable's distribution
+```R
+# base
+hist(morph$Kelch_laenge, breaks = 20)
+
+# ggplot2
+ggplot(data = morph, aes(x = Kelch_laenge)) + geom_histogram(bins = 20) 
+```
+
+#### Use **Barplots** only to plot factor level counts
+```
+# base
+barplot(table(morph$Population))
+
+# ggplot2
+ggplot(data = morph, aes(x = Population)) + geom_bar(stat = "count")
+```
+
+#### Use **Mosaic Plots** or *Stacked Barplots** to plot contingency tables of two factor variables against each other
+```R
+# base
+mosaicplot(table(morph$Infektion, morph$Hoehe), main = "Mosaicplot")
+
+# ggplot2
+ggplot(morph, aes(x = Infektion, fill = Hoehe)) + 
+  geom_bar(position = "fill") + 
+  labs(y = "Proportion") +
+  theme_bw()
+```
+
