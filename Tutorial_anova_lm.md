@@ -6,7 +6,7 @@
 
 You can think of them as extensions of a two-sample t-test. Remember that the two-sample t-test allows to test the difference in a dependent variable (a.k.a. **response** variable, measure variable, Y variable) between two levels of one factor (a.k.a. **predictor** variable, independent variable, X variable). A textbook two-sample t-test is the test for difference in human height (the dependent variable) between two sexes (the predictor variable).
 
-Let us start with a [**one-sample t-test**] (https://en.wikipedia.org/wiki/Student%27s_t-test):
+Let us start with a [**one-sample t-test**](https://en.wikipedia.org/wiki/Student%27s_t-test):
 
 ```R
 t.test(morph$Sepal_length, mu = 0)
