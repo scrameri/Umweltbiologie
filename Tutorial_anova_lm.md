@@ -63,16 +63,7 @@ A few facts about the dataset
 
 The experimental design and measurements have been done by [Ursina Walther](https://peg.ethz.ch/people/person-detail.html?persid=158239) (a PhD student in our group). She was interested in studying the evolution of floral traits in this species, especially in relation to the interaction between the plants and their Microbothryum parasite.
 
-##### Question 1: 
-
-<div>Icons made by <a href="https://www.flaticon.com/authors/prosymbols" title="Prosymbols">Prosymbols</a> from <a href="https://www.flaticon.com/" title="Question 1">www.flaticon.com</a></div>
-
-<img src="https://img.icons8.com/flat_round/64/000000/question-mark.png"/>
-
-[Question 1][logo]
-
-
-Based on what you now know about the study and the data:
+[logo] Based on what you now know about the study and the data:
 - what are the response variable(s)?
 - what are the explanatory variable(s)?
 
@@ -162,8 +153,7 @@ pairs.fertile # or print(pairs.fertile)
 graphics.off()
 ```
 
-![Question 2](https://upload.wikimedia.org/wikipedia/commons/2/2f/QuestionMark.jpg)
-Can you produce a plot of ```Petal_length ~ Sepal_length``` with points color-coded for ```Infection```?
+[logo]Can you produce a plot of ```Petal_length ~ Sepal_length``` with points color-coded for ```Infection```?
 
 ***
 
@@ -182,7 +172,7 @@ qqPlot(morph$Stalk_count, distribution = "norm", estimate.params = TRUE, add.lin
 par(mfrow=c(1,1))
 ```
 
-##### Question 3:
+[logo]
 - Which probability distribution is best at describing stalk count? 
 - What does this mean for a model ```Staengel_anz ~ Elevation``` fitted to this data?
 
