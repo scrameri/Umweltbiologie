@@ -83,27 +83,26 @@ summary(aov(Sepal_length ~ Infection * Elevation + Petal_length, data = morph))
 - GENERALIZED LINEAR MODEL extends ANCOVA by allowing for non-normal error distribution (logistic regression, poisson regression, ...).
 ```R
 plot(glm(Stalk_count ~ Infection * Elevation, family = "Gamma", data = morph))
-RRR
+```
 
+***
 
 ### Check model assumptions via Residual Analysis
-'Often (but not always!) a model fit to a non-normally distributed response variable will lead to non-normally
-distributed residuals. This is a problem since ANOVA aov() or linear regression models lm() make the 
-following assumptions:
+Often (but not always!) a model fit to a non-normally distributed response variable will lead to non-normally distributed residuals. This is a problem since ANOVA aov() or linear regression models lm() make the following assumptions:
   
-  - Normality: For any fixed value of X, Y is NORMALLY distributed. This implies that the residuals are normally distributed.
-  - Homoscedasticity: The RESIDUAL VARIANCE is CONSTANT (the same for any value of X)
-  - Independence: Observations are INDEPENDENT of each other (i.e. one measurement is not influenced by another)
+- [Normality:](https://en.wikipedia.org/wiki/Normal_distribution) For any fixed value of X, Y is NORMALLY distributed. This implies that the residuals are normally distributed. However, it does not mean that all variables have to be normally distributed (within groups).
+- [Homoscedasticity:](https://en.wikipedia.org/wiki/Homoscedasticity) The RESIDUAL VARIANCE is CONSTANT (the same for any value of X)
+- [Independence:](https://en.wikipedia.org/wiki/Independence_(probability_theory)) Observations are INDEPENDENT of each other (i.e. one measurement is not influenced by another)
 
 If one or more of these assumptions are violated, the model inference (i.e., test results) can be grossly misleading.
-'
+
 
 ### Variable transformations
 A transformation of the resonse Y often helps to improve model fit, at the expense of interpretability of the fitted model parameters (estimated effect size). There are the following commonly used first-aid transformations.
 
-- for positive COUNTS:   X -> sqrt(X)
-- for positive NUMERICS: X -> log(X)
-- for fractions [0,1]:   X <- asin(sqrt(X))
+- for *positive counts*:               `X <- sqrt(X)`
+- for *positive continuous variables*: `X <- log(X)`
+- for *fractions* [0,1]:               `X <- asin(sqr(X))`
 
 ```R
 par(mfrow=c(2,2))
@@ -114,12 +113,13 @@ par(mfrow=c(1,1))
 
 The fit now looks better than before, but still not perfect. The fitted estimated effect sizes now have to be interpreted as follows:
 
-- Changing Elevation from <hoch> to <tief> decreases the square-root of stalk count by 0.91
-- Changing Infection from <gesund> to <inf> increases the square-root of stalk count by 0.35
+- Changing Elevation from <high> to <tow> decreases the square-root of `stalk_count` by 0.91
+- Changing Infection from <healthy> to <infected> increases the square-root of `stalk_count` by 0.35
 
 ![logo]
 - Any idea why the residuals still show a violation of the model assumptions?
 
+***
 
 ### Interaction plots
 Interactions between explanatory variables can be present, and including them in the model can greatly improve the model fit and hence the reliability of test results.
