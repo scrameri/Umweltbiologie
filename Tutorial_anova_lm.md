@@ -153,7 +153,7 @@ pairs.fertile # or print(pairs.fertile)
 graphics.off()
 ```
 
-[logo]Can you produce a plot of ```Petal_length ~ Sepal_length``` with points color-coded for ```Infection```?
+![logo]Can you produce a plot of ```Petal_length ~ Sepal_length``` with points color-coded for ```Infection```?
 
 ***
 
@@ -172,9 +172,9 @@ qqPlot(morph$Stalk_count, distribution = "norm", estimate.params = TRUE, add.lin
 par(mfrow=c(1,1))
 ```
 
-[logo]
-- Which probability distribution is best at describing stalk count? 
-- What does this mean for a model ```Staengel_anz ~ Elevation``` fitted to this data?
+![logo]
+- Which probability distribution is best at describing ```Stalk_count```? 
+- What does this mean for a model ```Stalk_count ~ Elevation``` fitted to this data?
 
 
 [logo]: https://img.icons8.com/flat_round/64/000000/question-mark.png "Question"
