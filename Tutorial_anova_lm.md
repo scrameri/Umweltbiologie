@@ -153,7 +153,8 @@ pairs.fertile # or print(pairs.fertile)
 graphics.off()
 ```
 
-![logo]Can you produce a plot of ```Petal_length ~ Sepal_length``` with points color-coded for ```Infection```?
+![logo]
+- Can you produce a plot of ```Petal_length ~ Sepal_length``` with points color-coded for ```Infection```?
 
 ***
 
