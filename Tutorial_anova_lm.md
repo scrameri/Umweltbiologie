@@ -92,7 +92,7 @@ boxplot(Kelch_laenge ~ Hoehe, data = morph)
 ggplot(data = morph, aes(x = Hoehe, y = Kelch_laenge)) + geom_boxplot()
 ```
 
-#### Use **Histograms** to plot a variable's distribution
+#### Use *Histograms* to plot a variable's distribution
 ```R
 # base
 hist(morph$Kelch_laenge, breaks = 20)
@@ -101,7 +101,7 @@ hist(morph$Kelch_laenge, breaks = 20)
 ggplot(data = morph, aes(x = Kelch_laenge)) + geom_histogram(bins = 20) 
 ```
 
-#### Use **Barplots** to plot all values of a variable or a table of counts
+#### Use *Barplots* to plot all values of a variable or a table of counts
 ```
 # base
 barplot(table(morph$Population))
@@ -110,7 +110,7 @@ barplot(table(morph$Population))
 ggplot(data = morph, aes(x = Population)) + geom_bar(stat = "count")
 ```
 
-#### Use **Mosaic Plots** or *Stacked Barplots** to plot contingency tables of two factor variables against each other
+#### Use *Mosaic Plots* or *Stacked Barplots* to plot contingency tables of two factor variables against each other
 ```R
 # base
 mosaicplot(table(morph$Infektion, morph$Hoehe), main = "Mosaicplot")
