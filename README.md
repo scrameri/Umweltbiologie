@@ -12,6 +12,6 @@ It briefly introduces the following topics:
 * model diagnostics (residual analysis)
 * model comparison
 
-It is my no means complete, but aims at giving an overview and introduction for the course, where students should learn to design research questions, carry out as well as analyze and communicate the results of scientific experiments.
+It is my no means complete, but aims at giving an overview and introduction for the course, where students should learn to design research questions and scientific experiments, carry out as well as analyze and communicate the results of these experiments.
 
-If you have any questions or comments, do not hesitate to ask [me](mailto:simon.crameri@env.ethz.ch).
+If you have any questions, suggestions or comments, do not hesitate to ask [me](mailto:simon.crameri@env.ethz.ch).
