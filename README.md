@@ -1,7 +1,7 @@
 # Welcome to the Praktikum Umweltbiologie - Ecological Genetics
 
 Here is the `R` tutorial for the practical, implemented as a [Jupyter notebook](https://jupyter.org/):
-[Tutorial]("https://raw.githubusercontent.com/scrameri/Umweltbiologie/master/Tutorials.ipynb")
+[Tutorial](https://raw.githubusercontent.com/scrameri/Umweltbiologie/master/Tutorials.ipynb)
 
 It (briefly) covers the following topics:
 * reading data
