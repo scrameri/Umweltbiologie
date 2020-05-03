@@ -9,5 +9,7 @@ It (briefly) covers the following topics:
 * reproducibility in science
 * statistical distributions
 * analysis of variance and linear models
+* model diagnostics (residual analysis)
+* model comparison
 
 If you have any questions or comments, do not hesitate to ask [me](mailto:simon.crameri@env.ethz.ch).
