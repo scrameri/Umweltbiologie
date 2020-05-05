@@ -27,6 +27,6 @@ It *briefly* introduces the following topics based on *applied* examples:
   * Co-Plot
   * Principal Component Analysis (PCA)
 
-It is my no means complete, but aims at giving an overview and introduction for the course, where students should learn to design research questions and scientific experiments, carry out as well as analyze and communicate the results of these experiments.
+It is my no means complete, but aims at giving an overview and introduction for the course, where students should learn to design research questions and scientific experiments, carry out as well as analyze and communicate the results of these experiments. This tutorial focuses on the analysis and communication (plots) parts.
 
 If you have any questions, suggestions or comments, do not hesitate to ask [me](mailto:simon.crameri@env.ethz.ch).
