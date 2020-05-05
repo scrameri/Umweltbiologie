@@ -10,7 +10,10 @@ It briefly introduces the following topics:
 * statistical distributions
 * analysis of variance and linear models
 * model diagnostics (residual analysis)
-* model comparison
+* model comparison and model selection
+* contrasts
+* multivariate analysis methods
+  * Principal Component Analysis (PCA)
 
 It is my no means complete, but aims at giving an overview and introduction for the course, where students should learn to design research questions and scientific experiments, carry out as well as analyze and communicate the results of these experiments.
 
