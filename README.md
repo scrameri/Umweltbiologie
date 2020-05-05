@@ -2,7 +2,7 @@
 
 This is the `R` [tutorial](https://github.com/scrameri/Umweltbiologie/blob/master/Tutorials.ipynb) for the [practical Umweltbiologie](http://www.vvz.ethz.ch/lerneinheitPre.do?semkez=2019S&lerneinheitId=128022&lang=de), implemented as a [Jupyter notebook](https://jupyter.org/). To start the interactive session, klick on the link [open in collab](https://colab.research.google.com/github/scrameri/Umweltbiologie/blob/master/Tutorials.ipynb) and install the required packages.
 
-It *briefly* introduces the following topics based on *applied* examples:
+It *briefly* introduces the following topics based on *applied* examples with real data:
 * reproducibility in science
 * reading data
 * data exploration
